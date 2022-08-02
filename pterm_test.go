@@ -1,11 +1,6 @@
 package pterm_test
 
 import (
-<<<<<<< HEAD
-	"github.com/MarvinJWendt/testza"
-	"github.com/forvitinn/pterm"
-=======
->>>>>>> master
 	"testing"
 
 	"github.com/MarvinJWendt/testza"
