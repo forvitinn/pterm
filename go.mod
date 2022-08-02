@@ -1,4 +1,4 @@
-module github.com/forivitinn/pterm
+module github.com/forvitinn/pterm
 
 go 1.18
 
