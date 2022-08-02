@@ -1,6 +1,7 @@
 package pterm
 
 import (
+	"fmt"
 	"os"
 	"strings"
 
@@ -31,6 +32,34 @@ type InteractiveTextInputPrinter struct {
 	text       string
 }
 
+type TextInputPrinterAllExported struct {
+	TextStyle   *Style
+	DefaultText string
+	MultiLine   bool
+
+	Input      []string
+	CursorXPos int
+	CursorYPos int
+	Text       string
+
+}
+func (p *InteractiveTextInputPrinter) Export() (string, TextInputPrinterAllExported) {
+	return fmt.Sprintf("%v",p), TextInputPrinterAllExported {
+		p.TextStyle,
+		p.DefaultText,
+		p.MultiLine, 
+		p.input,
+		p.cursorXPos,
+		p.cursorYPos,
+		p.text,
+	}
+}
+func (p *InteractiveTextInputPrinter) Clear(i int) {
+	if i == 1 {
+		p.input = make([]string,0)
+	}
+	p.text = ""
+}
 // WithDefaultText sets the default text.
 func (p *InteractiveTextInputPrinter) WithDefaultText(text string) *InteractiveTextInputPrinter {
 	p.DefaultText = text
